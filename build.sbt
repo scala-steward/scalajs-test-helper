@@ -4,9 +4,10 @@ version := "0.1.0-SNAPSHOT"
 val groupId = "net.exoego"
 val projectName = "scalajs-test-helper"
 
-lazy val `scalajs-test-helper` = project
+lazy val root = project
   .in(file("."))
   .settings(
+    name := "scalajs-test-helper",
     MySettings.commonSettings,
     MySettings.nonPublishingSettings
   )
