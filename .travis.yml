@@ -1,0 +1,19 @@
+language: scala
+jdk:
+  - openjdk11
+scala:
+  - 2.13.1
+  - 2.12.10
+
+git:
+  depth: 100
+before_cache:
+  - find $HOME/.ivy2/cache -name "ivydata-*.properties" -type f -delete
+  - find $HOME/.sbt -name "*.lock" -type f -delete
+cache:
+  directories:
+    - $HOME/.cache/coursier
+    - $HOME/.ivy2/cache
+    - $HOME/.sbt
+
+script: sbt ++$TRAVIS_SCALA_VERSION test
