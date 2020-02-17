@@ -6,7 +6,7 @@ This project provides custom assertions and other helpers, which are convenient 
 
 ## Usage
 
-### With ScalaTest
+### With [ScalaTest](http://www.scalatest.org)
 
 The `scalajs-test-helper-scalatest` library is available for Scala.js 0.6.x.
 
@@ -32,6 +32,35 @@ class JsObjectStructuralEqualityTest extends AnyFunSuite {
     assert(js.Array() === js.Array())
     assert(js.Array(1, "a") === js.Array(1, "a"))
     assert(js.Array(new js.Object()) === js.Array(new js.Object()))
+  }
+}
+```
+
+
+### With [MUnit](https://scalameta.org/munit/)
+
+The `scalajs-test-helper-munit` library is available for Scala.js 0.6.x.
+
+```scala
+libraryDependencies += "net.exoego" %%% "scalajs-test-helper-munit" % "0.1.3" % Test
+```
+
+Import `net.exoego.scalajs.munit.ScalaJSAssertions` and extend it by your Test class.
+Those allows comparing two JS objects based on its contents, as similar as comparing Scala objects.
+
+```scala
+
+import scala.scalajs.js
+import net.exoego.scalajs.munit.ScalaJSAssertions
+
+class JsObjectStructuralEqualityTest extends munit.FunSuite with ScalaJSAssertions {
+
+  test("content equal of js.Array") {
+    assertStructuralEquals(js.Array(), js.Array())
+    assertStructuralEquals(js.Array(1, "a"), js.Array(1, "a"))
+    assertStructuralEquals(js.Array(new js.Object()), js.Array(new js.Object()))
+
+    assertNotStructuralEquals(js.Array(0, "b"), js.Array(1, "a"))
   }
 }
 ```

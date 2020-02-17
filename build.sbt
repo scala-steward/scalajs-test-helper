@@ -9,7 +9,7 @@ lazy val root = project
     MySettings.publishingSettings,
     MySettings.nonPublishingSettings
   )
-  .aggregate(core, forScalaTest)
+  .aggregate(core, forScalaTest, forMunit)
 
 lazy val core = project
   .enablePlugins(ScalaJSPlugin)
@@ -33,5 +33,20 @@ lazy val forScalaTest = project
     libraryDependencies ++= Seq(
       "org.scalatest" %%% "scalatest" % "3.1.0" % Compile
     )
+  )
+  .dependsOn(core)
+
+lazy val forMunit = project
+  .enablePlugins(ScalaJSPlugin)
+  .in(file("module/munit"))
+  .settings(
+    name := s"${projectName}-munit",
+    MySettings.commonSettings,
+    MySettings.publishingSettings,
+    libraryDependencies ++= Seq(
+      "org.scalameta" %%% "munit" % "0.5.2" % Compile
+    ),
+    scalaJSLinkerConfig ~= (_.withModuleKind(ModuleKind.CommonJSModule)),
+    testFrameworks += new TestFramework("munit.Framework")
   )
   .dependsOn(core)
