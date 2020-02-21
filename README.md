@@ -8,10 +8,10 @@ This project provides custom assertions and other helpers, which are convenient 
 
 ### With [ScalaTest](http://www.scalatest.org)
 
-The `scalajs-test-helper-scalatest` library is available for Scala.js 0.6.x.
+The `scalajs-test-helper-scalatest` library is available for Scala.js 0.6.x and 1.0.0.
 
 ```scala
-libraryDependencies += "net.exoego" %%% "scalajs-test-helper-scalatest" % "0.1.3" % Test
+libraryDependencies += "net.exoego" %%% "scalajs-test-helper-scalatest" % "0.2.0" % Test
 ```
 
 Import `net.exoego.scalajs.scalatest.structural._`.
@@ -39,10 +39,10 @@ class JsObjectStructuralEqualityTest extends AnyFunSuite {
 
 ### With [MUnit](https://scalameta.org/munit/)
 
-The `scalajs-test-helper-munit` library is available for Scala.js 0.6.x.
+The `scalajs-test-helper-munit` library is available for Scala.js 0.6.x and 1.0.0.
 
 ```scala
-libraryDependencies += "net.exoego" %%% "scalajs-test-helper-munit" % "0.1.3" % Test
+libraryDependencies += "net.exoego" %%% "scalajs-test-helper-munit" % "0.2.0" % Test
 ```
 
 Import `net.exoego.scalajs.munit.ScalaJSAssertions` and extend it by your Test class.
