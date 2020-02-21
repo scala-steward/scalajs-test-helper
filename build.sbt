@@ -1,6 +1,8 @@
 organization in ThisBuild := "net.exoego"
 val projectName = "scalajs-test-helper"
 
+val scalatestVersion = "3.1.1"
+
 lazy val root = project
   .in(file("."))
   .settings(
@@ -19,7 +21,7 @@ lazy val core = project
     MySettings.commonSettings,
     MySettings.publishingSettings,
     libraryDependencies ++= Seq(
-      "org.scalatest" %%% "scalatest" % "3.1.0" % Test
+      "org.scalatest" %%% "scalatest" % scalatestVersion % Test
     )
   )
 
@@ -31,7 +33,7 @@ lazy val forScalaTest = project
     MySettings.commonSettings,
     MySettings.publishingSettings,
     libraryDependencies ++= Seq(
-      "org.scalatest" %%% "scalatest" % "3.1.0" % Compile
+      "org.scalatest" %%% "scalatest" % scalatestVersion % Compile
     )
   )
   .dependsOn(core)

@@ -43,12 +43,14 @@ object MySettings {
   lazy val commonSettings = Seq(
     autoCompilerPlugins := true,
     scalacOptions ++= Seq(
-      "-P:scalajs:sjsDefinedByDefault",
       "-deprecation",
       "-unchecked",
       "-feature",
       "-language:implicitConversions"
     ) ++ lintSettings.value,
+    scalacOptions ++= Seq("-P:scalajs:sjsDefinedByDefault").filter { _ =>
+      Option(System.getenv("SCALAJS_VERSION")).getOrElse("1.0.0").startsWith("0.6.")
+    },
     scalacOptions in Compile in compile ++= Seq(
       "-Xfatal-warnings"
     ),
