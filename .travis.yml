@@ -21,4 +21,4 @@ script: sbt ++$TRAVIS_SCALA_VERSION test
 env:
   matrix:
     - SCALAJS_VERSION="0.6.32"
-    - SCALAJS_VERSION="1.1.1"
+    - SCALAJS_VERSION="1.2.0"
