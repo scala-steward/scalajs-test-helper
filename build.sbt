@@ -1,7 +1,7 @@
 organization in ThisBuild := "net.exoego"
 val projectName = "scalajs-test-helper"
 
-val scalatestVersion = "3.2.2"
+val scalatestVersion = "3.2.3"
 
 lazy val root = project
   .in(file("."))
