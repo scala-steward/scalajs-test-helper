@@ -48,9 +48,6 @@ object MySettings {
       "-feature",
       "-language:implicitConversions"
     ) ++ lintSettings.value,
-    scalacOptions ++= Seq("-P:scalajs:sjsDefinedByDefault").filter { _ =>
-      Option(System.getenv("SCALAJS_VERSION")).getOrElse("1.2.0").startsWith("0.6.")
-    },
     scalacOptions in Compile in compile ++= Seq(
       "-Xfatal-warnings"
     ),
