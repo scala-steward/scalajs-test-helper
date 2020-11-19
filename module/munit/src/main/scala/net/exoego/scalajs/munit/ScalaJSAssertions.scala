@@ -1,7 +1,7 @@
 package net.exoego.scalajs.munit
 
 import munit.internal.console.{AnsiColors, Lines, Printers, StackTraces}
-import munit.internal.difflib.Diffs
+import munit.internal.difflib.{ComparisonFailExceptionHandler, Diffs}
 import munit.{Clues, FailException, Location}
 import net.exoego.scalajs.StructuralEqual
 
@@ -9,7 +9,11 @@ import scala.scalajs.js
 
 trait ScalaJSAssertions {
   private def munitAnsiColors: Boolean = true
-  private   val munitLines = new Lines
+  private val munitLines = new Lines
+  private val comparisonFailHandler: ComparisonFailExceptionHandler =
+    (message: String, obtained: String, expected: String, location: Location) => {
+      fail(message)
+    }
 
   def assertStructuralEquals[A <: js.Object, B <: js.Object](
       a: A,
@@ -21,7 +25,7 @@ trait ScalaJSAssertions {
         Diffs.assertNoDiff(
           munitPrint(a),
           munitPrint(b),
-          message => fail(message),
+          comparisonFailHandler,
           munitPrint(clue),
           printObtainedAsStripMargin = false
         )
@@ -38,7 +42,7 @@ trait ScalaJSAssertions {
         Diffs.assertNoDiff(
           munitPrint(a),
           munitPrint(b),
-          message => fail(message),
+          comparisonFailHandler,
           munitPrint(clue),
           printObtainedAsStripMargin = false
         )
