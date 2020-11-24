@@ -128,9 +128,14 @@ class DeepEqualTest extends AnyFunSuite {
   }
 
   test("not equal with js.Array") {
-    assert(!StructuralEqual(new js.Object() {
-      val length = 0
-    }, js.Array()))
+    assert(
+      !StructuralEqual(
+        new js.Object() {
+          val length = 0
+        },
+        js.Array()
+      )
+    )
   }
 
   test("equal if both array have deep-equal elements in same order") {

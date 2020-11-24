@@ -9,7 +9,7 @@ class HasStringBar(val bar: String) extends js.Object
 class HasIntFoo(val foo: Int) extends js.Object
 
 class StructuralEqualsTest extends munit.FunSuite with ScalaJSAssertions {
- 
+
   test("equal if both are empty") {
     assertStructuralEquals(new js.Object(), new js.Object())
     assertStructuralEquals(new Empty1, new HasStringBar("a"))
@@ -56,9 +56,9 @@ class StructuralEqualsTest extends munit.FunSuite with ScalaJSAssertions {
       }
       val d = null
     }
-    assertStructuralEquals(a , b)
-    assertStructuralEquals(b , a)
-    assertStructuralEquals(new HasStringFoo("foo") , new HasStringFoo("foo"))
+    assertStructuralEquals(a, b)
+    assertStructuralEquals(b, a)
+    assertStructuralEquals(new HasStringFoo("foo"), new HasStringFoo("foo"))
   }
 
   test("not equal if different key") {
@@ -80,8 +80,8 @@ class StructuralEqualsTest extends munit.FunSuite with ScalaJSAssertions {
     val b = new js.Object() {
       val a = 2
     }
-    assertNotStructuralEquals(a , b)
-    assertNotStructuralEquals(b , a)
+    assertNotStructuralEquals(a, b)
+    assertNotStructuralEquals(b, a)
 
     val c = new js.Object() {
       val a = null
@@ -90,9 +90,9 @@ class StructuralEqualsTest extends munit.FunSuite with ScalaJSAssertions {
       val a = js.undefined
     }
     assertNotStructuralEquals(c, d)
-    assertNotStructuralEquals(d , c)
+    assertNotStructuralEquals(d, c)
 
-    assertNotStructuralEquals(new HasStringFoo("foo") , new HasStringFoo("bar"))
+    assertNotStructuralEquals(new HasStringFoo("foo"), new HasStringFoo("bar"))
   }
 
   test("not equal if having extra key") {
@@ -103,8 +103,8 @@ class StructuralEqualsTest extends munit.FunSuite with ScalaJSAssertions {
     val b = new js.Object() {
       val a = 1
     }
-    assertNotStructuralEquals(a , b)
-    assertNotStructuralEquals(b , a)
+    assertNotStructuralEquals(a, b)
+    assertNotStructuralEquals(b, a)
 
     val c = new js.Object() {
       val a = 1
@@ -113,42 +113,45 @@ class StructuralEqualsTest extends munit.FunSuite with ScalaJSAssertions {
     val d = new js.Object() {
       val a = 1
     }
-    assertNotStructuralEquals(c , d)
-    assertNotStructuralEquals(d , c)
+    assertNotStructuralEquals(c, d)
+    assertNotStructuralEquals(d, c)
   }
 
   test("equal if both is null") {
     val a: js.Object = null
     val b: js.Object = null
     assertStructuralEquals(a, b)
-    assertStructuralEquals(b , a)
+    assertStructuralEquals(b, a)
   }
 
   test("not equal if either is null") {
     val o: js.Object = null
     assertNotStructuralEquals(new js.Object(), o)
-    assertNotStructuralEquals(o , new js.Object())
+    assertNotStructuralEquals(o, new js.Object())
   }
 
   test("not equal with js.Array") {
-    assertNotStructuralEquals(new js.Object() {
-      val length = 0
-    } , js.Array())
+    assertNotStructuralEquals(
+      new js.Object() {
+        val length = 0
+      },
+      js.Array()
+    )
   }
 
   test("equal if both array have deep-equal elements in same order") {
-    assertStructuralEquals(js.Array() , js.Array())
-    assertStructuralEquals(js.Array(1, "a") , js.Array(1, "a"))
-    assertStructuralEquals(js.Array(new js.Object()) , js.Array(new js.Object()))
+    assertStructuralEquals(js.Array(), js.Array())
+    assertStructuralEquals(js.Array(1, "a"), js.Array(1, "a"))
+    assertStructuralEquals(js.Array(new js.Object()), js.Array(new js.Object()))
   }
 
   test("not equal if both array have not-deep-equal elements") {
-    assertNotStructuralEquals(js.Array(1) , js.Array(2))
-    assertNotStructuralEquals(js.Array("a", 1) , js.Array(1, "a"))
+    assertNotStructuralEquals(js.Array(1), js.Array(2))
+    assertNotStructuralEquals(js.Array("a", 1), js.Array(1, "a"))
   }
 
   test("equal if no properties but JSON string representation equals") {
-    assertStructuralEquals(new js.Date(1) , new js.Date(1))
-    assertNotStructuralEquals(new js.Date(1) , new js.Date(2))
+    assertStructuralEquals(new js.Date(1), new js.Date(1))
+    assertNotStructuralEquals(new js.Date(1), new js.Date(2))
   }
 }
