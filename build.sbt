@@ -1,4 +1,6 @@
 organization in ThisBuild := "net.exoego"
+crossScalaVersions in ThisBuild := Seq("2.13.3", "2.12.12")
+
 val projectName = "scalajs-test-helper"
 
 val scalatestVersion = "3.2.3"
