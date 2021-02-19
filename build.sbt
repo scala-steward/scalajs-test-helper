@@ -3,7 +3,7 @@ crossScalaVersions in ThisBuild := Seq("2.13.3", "2.12.12")
 
 val projectName = "scalajs-test-helper"
 
-val scalatestVersion = "3.2.4"
+val scalatestVersion = "3.2.5"
 
 lazy val root = project
   .in(file("."))
