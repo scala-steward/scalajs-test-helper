@@ -12,7 +12,6 @@ object MySettings {
       "adapted-args",
       "nullary-unit",
       "inaccessible",
-      "nullary-override",
       "infer-any",
       "missing-interpolator",
       "doc-detached",
