@@ -53,7 +53,7 @@ lazy val forMunit = project
     MySettings.commonSettings,
     MySettings.publishingSettings,
     libraryDependencies ++= Seq(
-      "org.scalameta" %%% "munit" % "0.7.23" % Compile
+      "org.scalameta" %%% "munit" % "0.7.25" % Compile
     ),
     scalaJSLinkerConfig ~= (_.withModuleKind(ModuleKind.CommonJSModule)),
     testFrameworks += new TestFramework("munit.Framework")
