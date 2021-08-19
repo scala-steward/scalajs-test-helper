@@ -1,4 +1,3 @@
-
 val scala212Version = "2.12.14"
 val scala213Version = "2.13.6"
 
@@ -24,7 +23,7 @@ lazy val core = project
   .enablePlugins(ScalaJSPlugin)
   .in(file("module/core"))
   .settings(
-    name := s"${projectName}-core",
+    name := s"$projectName-core",
     MySettings.commonSettings,
     MySettings.publishingSettings,
     libraryDependencies ++= Seq(
@@ -36,7 +35,7 @@ lazy val forScalaTest = project
   .enablePlugins(ScalaJSPlugin)
   .in(file("module/scalatest"))
   .settings(
-    name := s"${projectName}-scalatest",
+    name := s"$projectName-scalatest",
     MySettings.commonSettings,
     MySettings.publishingSettings,
     libraryDependencies ++= Seq(
@@ -49,7 +48,7 @@ lazy val forMunit = project
   .enablePlugins(ScalaJSPlugin)
   .in(file("module/munit"))
   .settings(
-    name := s"${projectName}-munit",
+    name := s"$projectName-munit",
     MySettings.commonSettings,
     MySettings.publishingSettings,
     libraryDependencies ++= Seq(
