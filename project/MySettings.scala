@@ -31,11 +31,11 @@ object MySettings {
       "eta-zero",
       "eta-sam",
       "deprecation"
-    ).filter(_ => !isScala212)).map(s => s"-Xlint:${s}")
+    ).filter(_ => !isScala212)).map(s => s"-Xlint:$s")
     // no privates to allow private constructor
     val unused = Seq("imports", "implicits", "locals", "patvars")
       .filter(_ => !isScala212)
-      .map(s => s"-Wunused:${s}")
+      .map(s => s"-Wunused:$s")
     lints ++ unused
   })
 

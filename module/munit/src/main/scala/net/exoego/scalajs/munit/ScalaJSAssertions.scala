@@ -11,9 +11,7 @@ trait ScalaJSAssertions {
   private def munitAnsiColors: Boolean = true
   private val munitLines = new Lines
   private val comparisonFailHandler: ComparisonFailExceptionHandler =
-    (message: String, obtained: String, expected: String, location: Location) => {
-      fail(message)
-    }
+    (message: String, obtained: String, expected: String, location: Location) => fail(message)
 
   def assertStructuralEquals[A <: js.Object, B <: js.Object](
       a: A,
