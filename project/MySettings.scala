@@ -47,10 +47,10 @@ object MySettings {
       "-feature",
       "-language:implicitConversions"
     ) ++ lintSettings.value,
-    scalacOptions in Compile in compile ++= Seq(
+    Compile / compile / scalacOptions ++= Seq(
       "-Xfatal-warnings"
     ),
-    scalacOptions in Compile in doc ++= Seq(
+    Compile / doc / scalacOptions ++= Seq(
       "-Xfatal-warnings",
       "-no-link-warnings"
     ),
@@ -77,23 +77,23 @@ object MySettings {
     publish := {},
     publishLocal := {},
     publishArtifact := false,
-    publishArtifact in (Compile, packageDoc) := false,
-    publishArtifact in (Compile, packageSrc) := false
+    Compile / packageDoc / publishArtifact := false,
+    Compile / packageSrc / publishArtifact := false
   )
 
   lazy val publishingSettings = Seq(
-    publishTo in ThisBuild := SonatypeKeys.sonatypePublishToBundle.value,
+    ThisBuild / publishTo := SonatypeKeys.sonatypePublishToBundle.value,
     publishMavenStyle := true,
-    publishArtifact in Test := false,
-    publishArtifact in (Compile, packageDoc) := true,
-    publishArtifact in (Compile, packageSrc) := true,
+    Test / publishArtifact := false,
+    Compile / packageDoc / publishArtifact := true,
+    Compile / packageSrc / publishArtifact := true,
     pomIncludeRepository := { _ =>
       false
     },
     publishConfiguration := publishConfiguration.value.withOverwrite(true),
     publishLocalConfiguration := publishLocalConfiguration.value.withOverwrite(true),
-    publishArtifact in packageDoc := false,
-    sources in (Compile, doc) := Seq.empty,
+    packageDoc / publishArtifact := false,
+    Compile / doc / sources := Seq.empty,
     releasePublishArtifactsAction := PgpKeys.publishSigned.value,
     releaseProcess := Seq[ReleaseStep](
       checkSnapshotDependencies,

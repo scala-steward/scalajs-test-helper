@@ -1,9 +1,9 @@
 val scala212Version = "2.12.15"
 val scala213Version = "2.13.7"
 
-scalaVersion in ThisBuild := scala213Version
-organization in ThisBuild := "net.exoego"
-crossScalaVersions in ThisBuild := Seq(scala213Version, scala212Version)
+ThisBuild / scalaVersion := scala213Version
+ThisBuild / organization := "net.exoego"
+ThisBuild / crossScalaVersions := Seq(scala213Version, scala212Version)
 
 val projectName = "scalajs-test-helper"
 
