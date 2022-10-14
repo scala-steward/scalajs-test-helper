@@ -1,4 +1,4 @@
-val scala212Version = "2.12.16"
+val scala212Version = "2.12.17"
 val scala213Version = "2.13.8"
 
 ThisBuild / scalaVersion := scala213Version
