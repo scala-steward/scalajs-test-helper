@@ -1,5 +1,5 @@
 val scala212Version = "2.12.16"
-val scala213Version = "2.13.8"
+val scala213Version = "2.13.10"
 
 ThisBuild / scalaVersion := scala213Version
 ThisBuild / organization := "net.exoego"
@@ -7,7 +7,7 @@ ThisBuild / crossScalaVersions := Seq(scala213Version, scala212Version)
 
 val projectName = "scalajs-test-helper"
 
-val scalatestVersion = "3.2.13"
+val scalatestVersion = "3.2.14"
 
 lazy val root = project
   .in(file("."))
