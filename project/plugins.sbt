@@ -1,6 +1,6 @@
 addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.5.0")
 //addSbtPlugin("io.github.davidgregory084" % "sbt-tpolecat" % "0.1.10")
-addSbtPlugin("org.scala-js" % "sbt-scalajs" % "1.12.0")
+addSbtPlugin("org.scala-js" % "sbt-scalajs" % "1.13.0")
 addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "3.9.16")
 addSbtPlugin("com.github.sbt" % "sbt-release" % "1.1.0")
 addSbtPlugin("com.github.sbt" % "sbt-pgp" % "2.2.1")
