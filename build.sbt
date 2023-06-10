@@ -1,5 +1,5 @@
 val scala212Version = "2.12.17"
-val scala213Version = "2.13.10"
+val scala213Version = "2.13.11"
 
 ThisBuild / scalaVersion := scala213Version
 ThisBuild / organization := "net.exoego"
